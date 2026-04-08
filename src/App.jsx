@@ -1,12 +1,13 @@
-
+import GeneralInfo from "./components/Generalinfo";
 
 
 function App() {
   return (
-    <>
-      <div>Hello World</div>
-    </>
-  )
+    <div>
+      <h1>CV Builder</h1>
+      <GeneralInfo/>
+    </div>
+  );
 }
 
 export default App
