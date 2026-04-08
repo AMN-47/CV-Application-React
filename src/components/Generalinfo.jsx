@@ -9,10 +9,15 @@ function GeneralInfo() {
         phone: ""
     });
 
-    function handleSubmit(e) {
+    function handleChange(e) {
         setData ({
             ...data,
             [e.target.name]: e.target.value
         });
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setIsEditing(false);
     }
 }
