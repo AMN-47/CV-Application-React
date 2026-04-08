@@ -8,4 +8,11 @@ function GeneralInfo() {
         email: "",
         phone: ""
     });
+
+    function handleSubmit(e) {
+        setData ({
+            ...data,
+            [e.target.name]: e.target.value
+        });
+    }
 }
