@@ -48,5 +48,6 @@ function GeneralInfo() {
             )}
         </div>
     );
-
 }
+
+export default GeneralInfo;
