@@ -43,7 +43,7 @@ function GeneralInfo() {
                    <p><strong>Email:</strong>{data.email}</p>
                    <p><strong>Phone:</strong>{data.phone}</p> 
 
-                   <button onClick={handleEdit}>Submit</button>
+                   <button onClick={handleEdit}>Edit</button>
                 </div>
             )}
         </div>
