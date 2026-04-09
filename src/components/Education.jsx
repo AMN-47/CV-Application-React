@@ -16,5 +16,12 @@ function Education() {
         });
     }
 
-    
+    function handleSubmit(e) {
+        e.preventDefault();
+        setIsEditing(false);
+    }
+
+    function handleEdit() {
+        setIsEditing(true);
+    }
 }
