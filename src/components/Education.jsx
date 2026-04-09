@@ -24,4 +24,10 @@ function Education() {
     function handleEdit() {
         setIsEditing(true);
     }
+
+    return (
+        <div>
+            <h2>Education</h2>
+        </div>
+    )
 }
