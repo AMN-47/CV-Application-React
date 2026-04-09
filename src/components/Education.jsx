@@ -8,4 +8,13 @@ function Education() {
         study: "",
         date: ""
     });
+    
+    function handleChanges(e) {
+        setData({
+            ...data,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    
 }
