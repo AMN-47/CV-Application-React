@@ -9,7 +9,7 @@ function Education() {
         date: ""
     });
     
-    function handleChanges(e) {
+    function handleChange(e) {
         setData({
             ...data,
             [e.target.name]: e.target.value
@@ -28,6 +28,21 @@ function Education() {
     return (
         <div>
             <h2>Education</h2>
+
+            {isEditing ? (
+                <form onSubmit={handleSubmit}>
+                    <input
+                        name="date"
+                        placeholder="Date of Study"
+                        value={data.date}
+                        onChange={handleChange}    
+                    />
+                </form>
+            ) : (
+                <div>
+
+                </div>
+            )}
         </div>
-    )
+    );
 }
