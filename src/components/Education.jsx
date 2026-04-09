@@ -32,11 +32,27 @@ function Education() {
             {isEditing ? (
                 <form onSubmit={handleSubmit}>
                     <input
+                        name="school"
+                        placeholder="School Mame"
+                        value={data.school}
+                        onChange={handleChange}    
+                    />
+
+                    <input
+                        name="study" 
+                        placeholder="Title of Study"
+                        value={data.study}
+                        onChange={handleChange}
+                    />
+
+                    <input 
                         name="date"
                         placeholder="Date of Study"
                         value={data.date}
-                        onChange={handleChange}    
+                        onChange={handleChange}
                     />
+
+                    <button type="submit">Submit</button>
                 </form>
             ) : (
                 <div>
