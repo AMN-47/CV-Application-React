@@ -56,7 +56,8 @@ function Education() {
                 </form>
             ) : (
                 <div>
-
+                    <p><strong>School:</strong> {data.school}</p>
+                    <p><strong>Study:</strong> {data.study}</p>
                 </div>
             )}
         </div>
