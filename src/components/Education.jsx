@@ -58,8 +58,11 @@ function Education() {
                 <div>
                     <p><strong>School:</strong> {data.school}</p>
                     <p><strong>Study:</strong> {data.study}</p>
+                    <p><strong>Date:</strong> {data.date}</p>
                 </div>
             )}
         </div>
     );
 }
+
+export default Education;
