@@ -11,5 +11,11 @@ function Experience() {
         to: ""
     });
 
+    function handleChange(e) {
+        setData({
+            ...data, 
+            [e.target.name]: e.target.value
+        });
+    }
     
 }
