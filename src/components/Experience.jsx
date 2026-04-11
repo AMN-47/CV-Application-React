@@ -26,4 +26,10 @@ function Experience() {
     function handleEdit() {
         setIsEditing(true);
     }
+
+    return (
+        <div>
+            <h2>Experience</h2>
+        </div>
+    )
 }
