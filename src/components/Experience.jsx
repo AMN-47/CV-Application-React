@@ -22,4 +22,8 @@ function Experience() {
         e.preventDefault();
         setIsEditing(false);
     }
+
+    function handleEdit() {
+        setIsEditing(true);
+    }
 }
