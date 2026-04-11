@@ -17,5 +17,9 @@ function Experience() {
             [e.target.name]: e.target.value
         });
     }
-    
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setIsEditing(false);
+    }
 }
