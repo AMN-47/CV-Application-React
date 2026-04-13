@@ -12,15 +12,20 @@ function Education() {
     const [educationList, setEducationList]= useState([]);
     
     function handleChange(e) {
-        setData({
-            ...data,
+        setFormData({
+            ...formData,
             [e.target.name]: e.target.value
         });
     }
 
     function handleSubmit(e) {
-        e.preventDefault();
-        setIsEditing(false);
+        setEducationList([...educationList, formData]);
+
+        setFormData({
+            school: "",
+            study: "",
+            date: ""
+        });
     }
 
     function handleEdit() {
