@@ -28,6 +28,10 @@ function Education() {
         });
     }
 
+    function handleFinish() {
+        setIsEditing(false);
+    }
+
     function handleEdit() {
         setIsEditing(true);
     }
