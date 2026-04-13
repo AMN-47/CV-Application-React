@@ -1,42 +1,44 @@
 import { useState } from "react";
 
 function Education() {
-    const [isEditing, setIsEditing] = useState(true);
+  const [isEditing, setIsEditing] = useState(true);
 
-    const [formData, setFormData] = useState({
-        school: "",
-        study: "",
-        date: ""
+  const [formData, setFormData] = useState({
+    school: "",
+    study: "",
+    date: ""
+  });
+
+  const [educationList, setEducationList] = useState([]);
+
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
     });
+  }
 
-    const [educationList, setEducationList]= useState([]);
-    
-    function handleChange(e) {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    }
+  function handleSubmit(e) {
+    e.preventDefault();
 
-    function handleSubmit(e) {
-        setEducationList([...educationList, formData]);
+    setEducationList([...educationList, formData]);
 
-        setFormData({
-            school: "",
-            study: "",
-            date: ""
-        });
-    }
+    setFormData({
+      school: "",
+      study: "",
+      date: ""
+    });
+  }
 
-    function handleFinish() {
-        setIsEditing(false);
-    }
+  function handleFinish() {
+    setIsEditing(false);
+  }
 
-    function handleEdit() {
-        setIsEditing(true);
-    }
+  function handleEdit() {
+    setIsEditing(true);
+  }
 
-    return (
+  return (
     <div>
       <h2>Education</h2>
 
