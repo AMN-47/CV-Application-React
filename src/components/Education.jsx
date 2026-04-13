@@ -37,45 +37,63 @@ function Education() {
     }
 
     return (
+    <div>
+      <h2>Education</h2>
+
+      {isEditing ? (
         <div>
-            <h2>Education</h2>
+          <form onSubmit={handleSubmit}>
+            <input
+              name="school"
+              placeholder="School Name"
+              value={formData.school}
+              onChange={handleChange}
+            />
 
-            {isEditing ? (
-                <form onSubmit={handleSubmit}>
-                    <input
-                        name="school"
-                        placeholder="School Mame"
-                        value={data.school}
-                        onChange={handleChange}    
-                    />
+            <input
+              name="study"
+              placeholder="Title of Study"
+              value={formData.study}
+              onChange={handleChange}
+            />
 
-                    <input
-                        name="study" 
-                        placeholder="Title of Study"
-                        value={data.study}
-                        onChange={handleChange}
-                    />
+            <input
+              name="date"
+              placeholder="Date of Study"
+              value={formData.date}
+              onChange={handleChange}
+            />
 
-                    <input 
-                        name="date"
-                        placeholder="Date of Study"
-                        value={data.date}
-                        onChange={handleChange}
-                    />
+            <button type="submit">Add</button>
+          </form>
 
-                    <button type="submit">Submit</button>
-                </form>
-            ) : (
-                <div>
-                    <p><strong>School:</strong> {data.school}</p>
-                    <p><strong>Study:</strong> {data.study}</p>
-                    <p><strong>Date:</strong> {data.date}</p>
+          <button onClick={handleFinish}>Finish</button>
 
-                    <button onClick={handleEdit}>Edit</button>
-                </div>
-            )}
+          <h3>Preview</h3>
+          {educationList.map((edu, index) => (
+            <div key={index}>
+              <p>{edu.school}</p>
+              <p>{edu.study}</p>
+              <p>{edu.date}</p>
+              <hr />
+            </div>
+          ))}
         </div>
-    );
+      ) : (
+        <div>
+          {educationList.map((edu, index) => (
+            <div key={index}>
+              <p><strong>School:</strong> {edu.school}</p>
+              <p><strong>Study:</strong> {edu.study}</p>
+              <p><strong>Date:</strong> {edu.date}</p>
+            </div>
+          ))}
+
+          <button onClick={handleEdit}>Edit</button>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default Education;
