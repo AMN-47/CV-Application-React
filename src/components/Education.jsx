@@ -8,6 +8,8 @@ function Education() {
         study: "",
         date: ""
     });
+
+    const [educationList, setEducationList]= useState([]);
     
     function handleChange(e) {
         setData({
