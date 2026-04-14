@@ -1,6 +1,9 @@
+import { useState } from "react";
 import GeneralInfo from "./components/Generalinfo";
 import Education from "./components/Education";
-import Experience from "./components/Experience"
+import Experience from "./components/Experience";
+import CVPreview from "./components/CVPreview";
+
 
 function App() {
   return (
