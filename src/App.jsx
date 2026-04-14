@@ -5,13 +5,25 @@ import Experience from "./components/Experience";
 import CVPreview from "./components/CVPreview";
 
 
+
 function App() {
+  const [general, setGeneral] = useState({});
+  const [education, setEducation] = useState([]);
+  const [experience, setExperience] = useState([]);
+  
   return (
-    <div>
-      <h1>CV Builder</h1>
-      <GeneralInfo/>
-      <Education/>
-      <Experience/>
+    <div className="app-container">
+      <div className="form-selection">
+        <GeneralInfo setGeneral={setGeneral} />
+        <Education setEducation={setEducation}/>
+        <Experience setExperience={setExperience}/>
+      </div>
+
+      <CVPreview
+        general={general}
+        education={education}
+        experience={experience}
+      />
     </div>
   );
 }
