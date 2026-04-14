@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function Education() {
   const [isEditing, setIsEditing] = useState(true);
+  const [editIndex, setEditIndex] = useState(null);
 
   const [formData, setFormData] = useState({
     school: "",
@@ -21,7 +22,19 @@ function Education() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    setEducationList([...educationList, formData]);
+    if (editIndex !== null) {
+      const updatedList = educationList.map((item, index) => {
+        if (index === editIndex) {
+          return formData;
+        }
+        return item;
+      });
+
+      setEducationList(updatedList);
+      setEditIndex(null);
+    } else {
+      setEducationList([...educationList, formData]);
+    }
 
     setFormData({
       school: "",
@@ -36,6 +49,11 @@ function Education() {
     });
 
     setEducationList(updatedList);
+  }
+
+  function handleEditItem(index) {
+    setFormData(educationList[index]);
+    setEditIndex(index);
   }
 
   function handleFinish() {
@@ -53,28 +71,13 @@ function Education() {
       {isEditing ? (
         <div>
           <form onSubmit={handleSubmit}>
-            <input
-              name="school"
-              placeholder="School Name"
-              value={formData.school}
-              onChange={handleChange}
-            />
+            <input name="school" placeholder="School Name" value={formData.school} onChange={handleChange} />
+            <input name="study" placeholder="Title of Study" value={formData.study} onChange={handleChange} />
+            <input name="date" placeholder="Date of Study" value={formData.date} onChange={handleChange} />
 
-            <input
-              name="study"
-              placeholder="Title of Study"
-              value={formData.study}
-              onChange={handleChange}
-            />
-
-            <input
-              name="date"
-              placeholder="Date of Study"
-              value={formData.date}
-              onChange={handleChange}
-            />
-
-            <button type="submit">Add</button>
+            <button type="submit">
+              {editIndex !== null ? "Update" : "Add"}
+            </button>
           </form>
 
           <button onClick={handleFinish}>Finish</button>
@@ -86,10 +89,8 @@ function Education() {
               <p>{edu.study}</p>
               <p>{edu.date}</p>
 
-              {/* 👇 DELETE BUTTON */}
-              <button onClick={() => handleDelete(index)}>
-                Delete
-              </button>
+              <button onClick={() => handleEditItem(index)}>Edit</button>
+              <button onClick={() => handleDelete(index)}>Delete</button>
 
               <hr />
             </div>
