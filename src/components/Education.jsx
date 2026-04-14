@@ -30,6 +30,14 @@ function Education() {
     });
   }
 
+  function handleDelete(indexToRemove) {
+    const updatedList = educationList.filter((item, index) => {
+      return index !== indexToRemove;
+    });
+
+    setEducationList(updatedList);
+  }
+
   function handleFinish() {
     setIsEditing(false);
   }
@@ -77,6 +85,12 @@ function Education() {
               <p>{edu.school}</p>
               <p>{edu.study}</p>
               <p>{edu.date}</p>
+
+              {/* 👇 DELETE BUTTON */}
+              <button onClick={() => handleDelete(index)}>
+                Delete
+              </button>
+
               <hr />
             </div>
           ))}
