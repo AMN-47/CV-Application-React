@@ -3,7 +3,7 @@ import GeneralInfo from "./components/Generalinfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import CVPreview from "./components/CVPreview";
-
+import "./styles/cv.css"
 
 
 function App() {
